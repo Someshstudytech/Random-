@@ -1,5 +1,5 @@
 {
-	"name": "trigger1",
+	"name": "storage event trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
