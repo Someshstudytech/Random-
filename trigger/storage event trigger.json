@@ -1,0 +1,17 @@
+{
+	"name": "storage event trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/1b4e4425-5965-4450-9a9a-ab711ca7d50e/resourceGroups/covid-reporting-rg01/providers/Microsoft.Storage/storageAccounts/covidreportingsga",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
