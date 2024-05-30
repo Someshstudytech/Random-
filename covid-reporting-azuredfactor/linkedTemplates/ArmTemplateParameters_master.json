@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covid-reporting-azuredfactor"
+		},
+		"ls_ablb_covidreporting_connectionString": {
+			"value": ""
+		},
+		"ls_adls_covidreporting_accountKey": {
+			"value": ""
+		},
+		"ls_adls_covidreporting_properties_typeProperties_url": {
+			"value": "https://covidreportingadls1.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
