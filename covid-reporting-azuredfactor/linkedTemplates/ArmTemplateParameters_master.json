@@ -14,6 +14,18 @@
 		"ls_adls_covidreporting_properties_typeProperties_url": {
 			"value": "https://covidreportingadls1.dfs.core.windows.net/"
 		},
+		"ls_case_death_properties_typeProperties_url": {
+			"value": "@{linkedService().BaseUrl}"
+		},
+		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
+			"value": "cloudboxacademy/covid19/main/ecdc_data/case_deaths_uk_ind_only.csv"
+		},
+		"Schedule trigger_properties_pl_ECDC_admission_parameters_SinkFileName": {
+			"value": "case_deaths_uk_ind_only.csv"
+		},
+		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceBaseUrl": {
+			"value": "https://raw.githubusercontent.com/"
+		},
 		"containerUri": {
 			"value": ""
 		},
