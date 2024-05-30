@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "covid-reporting-azuredfactor"
 		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
 		"ls_ablb_covidreporting_connectionString": {
 			"value": ""
 		},

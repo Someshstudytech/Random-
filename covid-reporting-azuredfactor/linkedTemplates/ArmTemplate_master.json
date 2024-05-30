@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "covid-reporting-azuredfactor"
 		},
+		"AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
+		},
 		"ls_ablb_covidreporting_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_ablb_covidreporting'"
@@ -61,6 +65,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage_connectionString": {
+						"value": "[parameters('AzureBlobStorage_connectionString')]"
 					},
 					"ls_ablb_covidreporting_connectionString": {
 						"value": "[parameters('ls_ablb_covidreporting_connectionString')]"
