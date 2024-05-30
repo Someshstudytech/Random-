@@ -10,8 +10,8 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"SourceRelativeUrl": "cloudboxacademy/covid19/main/ecdc_data/case_deaths_uk_ind_only.csv",
-					"SinkFileName": "case_deaths_uk_ind_only.csv",
+					"SourceRelativeUrl": "cloudboxacademy/covid19/main/ecdc_data/testing.csv",
+					"SinkFileName": "testing.csv",
 					"SourceBaseUrl": "https://raw.githubusercontent.com/"
 				}
 			}
