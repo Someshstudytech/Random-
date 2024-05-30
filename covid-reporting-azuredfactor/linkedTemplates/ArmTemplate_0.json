@@ -18,6 +18,10 @@
 		"ls_adls_covidreporting_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://covidreportingadls1.dfs.core.windows.net/"
+		},
+		"storage event trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1b4e4425-5965-4450-9a9a-ab711ca7d50e/resourceGroups/covid-reporting-rg01/providers/Microsoft.Storage/storageAccounts/covidreportingsga"
 		}
 	},
 	"variables": {
@@ -318,6 +322,36 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw')]",
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_tsv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/storage event trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_ingest_populationdata",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/population/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('storage event trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_populationdata')]"
 			]
 		}
 	]
