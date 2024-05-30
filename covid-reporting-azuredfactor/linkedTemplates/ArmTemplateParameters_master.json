@@ -14,9 +14,6 @@
 		"ls_adls_covidreporting_properties_typeProperties_url": {
 			"value": "https://covidreportingadls1.dfs.core.windows.net/"
 		},
-		"storage event trigger_properties_typeProperties_scope": {
-			"value": "/subscriptions/1b4e4425-5965-4450-9a9a-ab711ca7d50e/resourceGroups/covid-reporting-rg01/providers/Microsoft.Storage/storageAccounts/covidreportingsga"
-		},
 		"containerUri": {
 			"value": ""
 		},
