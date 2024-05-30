@@ -321,30 +321,30 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/schedule')]",
+			"name": "[concat(parameters('factoryName'), '/tumbling window trigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pl_ingest_populationdata",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "pl_ingest_populationdata",
+						"type": "PipelineReference"
+					},
+					"parameters": {}
+				},
+				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 2,
-						"startTime": "2024-05-30T08:15:00",
-						"endTime": "2024-05-30T08:22:46",
-						"timeZone": "India Standard Time"
-					}
+					"frequency": "Minute",
+					"interval": 5,
+					"startTime": "2024-05-30T09:51:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
 				}
 			},
 			"dependsOn": [
