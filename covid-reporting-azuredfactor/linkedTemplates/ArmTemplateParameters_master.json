@@ -18,10 +18,10 @@
 			"value": "@{linkedService().BaseUrl}"
 		},
 		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
-			"value": "cloudboxacademy/covid19/main/ecdc_data/case_deaths_uk_ind_only.csv"
+			"value": "cloudboxacademy/covid19/main/ecdc_data/testing.csv"
 		},
 		"Schedule trigger_properties_pl_ECDC_admission_parameters_SinkFileName": {
-			"value": "case_deaths_uk_ind_only.csv"
+			"value": "testing.csv"
 		},
 		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceBaseUrl": {
 			"value": "https://raw.githubusercontent.com/"

@@ -25,11 +25,11 @@
 		},
 		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
 			"type": "string",
-			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/case_deaths_uk_ind_only.csv"
+			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/testing.csv"
 		},
 		"Schedule trigger_properties_pl_ECDC_admission_parameters_SinkFileName": {
 			"type": "string",
-			"defaultValue": "case_deaths_uk_ind_only.csv"
+			"defaultValue": "testing.csv"
 		},
 		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceBaseUrl": {
 			"type": "string",
