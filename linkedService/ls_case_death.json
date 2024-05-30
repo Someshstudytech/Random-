@@ -1,10 +1,15 @@
 {
 	"name": "ls_case_death",
 	"properties": {
+		"parameters": {
+			"BaseUrl": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://raw.githubusercontent.com/",
+			"url": "@{linkedService().BaseUrl}",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
