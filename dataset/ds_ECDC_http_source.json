@@ -3,10 +3,19 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_case_death",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"sourceBaseURL": {
+					"value": "@dataset().BaseUrl",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
 			"RelativeURL": {
+				"type": "string"
+			},
+			"BaseUrl": {
 				"type": "string"
 			}
 		},
