@@ -27,18 +27,6 @@
 			"type": "string",
 			"defaultValue": "@{linkedService().sourceBaseURL}"
 		},
-		"Schedule_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
-			"type": "string",
-			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/testing.csv"
-		},
-		"Schedule_properties_pl_ECDC_admission_parameters_SinkFileName": {
-			"type": "string",
-			"defaultValue": "testing.csv"
-		},
-		"Schedule_properties_pl_ECDC_admission_parameters_sourceBaseURL": {
-			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com/"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -80,15 +68,6 @@
 					},
 					"ls_case_death_properties_typeProperties_url": {
 						"value": "[parameters('ls_case_death_properties_typeProperties_url')]"
-					},
-					"Schedule_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
-						"value": "[parameters('Schedule_properties_pl_ECDC_admission_parameters_SourceRelativeUrl')]"
-					},
-					"Schedule_properties_pl_ECDC_admission_parameters_SinkFileName": {
-						"value": "[parameters('Schedule_properties_pl_ECDC_admission_parameters_SinkFileName')]"
-					},
-					"Schedule_properties_pl_ECDC_admission_parameters_sourceBaseURL": {
-						"value": "[parameters('Schedule_properties_pl_ECDC_admission_parameters_sourceBaseURL')]"
 					}
 				}
 			},

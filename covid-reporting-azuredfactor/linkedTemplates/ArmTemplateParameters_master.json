@@ -20,15 +20,6 @@
 		"ls_case_death_properties_typeProperties_url": {
 			"value": "@{linkedService().sourceBaseURL}"
 		},
-		"Schedule_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
-			"value": "cloudboxacademy/covid19/main/ecdc_data/testing.csv"
-		},
-		"Schedule_properties_pl_ECDC_admission_parameters_SinkFileName": {
-			"value": "testing.csv"
-		},
-		"Schedule_properties_pl_ECDC_admission_parameters_sourceBaseURL": {
-			"value": "https://raw.githubusercontent.com/"
-		},
 		"containerUri": {
 			"value": ""
 		},
