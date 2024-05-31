@@ -18,15 +18,15 @@
 			"value": "https://covidreportingadls1.dfs.core.windows.net/"
 		},
 		"ls_case_death_properties_typeProperties_url": {
-			"value": "@{linkedService().BaseUrl}"
+			"value": "@{linkedService().sourceBaseURL}"
 		},
-		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
+		"Schedule_properties_pl_ECDC_admission_parameters_SourceRelativeUrl": {
 			"value": "cloudboxacademy/covid19/main/ecdc_data/testing.csv"
 		},
-		"Schedule trigger_properties_pl_ECDC_admission_parameters_SinkFileName": {
+		"Schedule_properties_pl_ECDC_admission_parameters_SinkFileName": {
 			"value": "testing.csv"
 		},
-		"Schedule trigger_properties_pl_ECDC_admission_parameters_SourceBaseUrl": {
+		"Schedule_properties_pl_ECDC_admission_parameters_sourceBaseURL": {
 			"value": "https://raw.githubusercontent.com/"
 		}
 	}
