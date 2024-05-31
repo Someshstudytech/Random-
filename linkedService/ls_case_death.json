@@ -2,7 +2,7 @@
 	"name": "ls_case_death",
 	"properties": {
 		"parameters": {
-			"BaseUrl": {
+			"SourceBaseUrl": {
 				"type": "string"
 			}
 		},
