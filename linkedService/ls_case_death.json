@@ -2,14 +2,14 @@
 	"name": "ls_case_death",
 	"properties": {
 		"parameters": {
-			"SourceBaseUrl": {
+			"sourceBaseURL": {
 				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "@{linkedService().SourceBaseUrl}",
+			"url": "@{linkedService().sourceBaseURL}",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
