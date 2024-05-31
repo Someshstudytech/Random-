@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pl_ECDC_admission",
+					"referenceName": "pl_ECDC_data",
 					"type": "PipelineReference"
 				}
 			}
