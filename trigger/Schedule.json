@@ -8,11 +8,6 @@
 				"pipelineReference": {
 					"referenceName": "pl_ECDC_admission",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceRelativeUrl": "cloudboxacademy/covid19/main/ecdc_data/testing.csv",
-					"SinkFileName": "testing.csv",
-					"sourceBaseURL": "https://raw.githubusercontent.com/"
 				}
 			}
 		],
