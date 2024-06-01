@@ -2,16 +2,32 @@
 	"name": "ds_ecdc_file_list",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_ablb_covidreporting",
-			"type": "LinkedServiceReference"
+			"referenceName": "ls_case_death",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"sourceBaseURL": {
+					"value": "@dataset().BaseUrl",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"BaseUrl": {
+				"type": "string"
+			},
+			"RelativeUrl": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "ecdc_file_list_for_2_files.json",
-				"container": "population"
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().RelativeUrl",
+					"type": "Expression"
+				}
 			}
 		},
 		"schema": {
