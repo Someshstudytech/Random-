@@ -12,7 +12,15 @@
 					"name": "CasesAndDeathsSource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_cases_deaths_sink",
+						"type": "DatasetReference"
+					},
+					"name": "processedcasesdeaths"
+				}
+			],
 			"transformations": [
 				{
 					"name": "FilterEuropeOnly"
@@ -33,7 +41,15 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> CasesAndDeathsSource",
-				"CasesAndDeathsSource filter(continent=='Europe' && not(isNull(country_code))) ~> FilterEuropeOnly"
+				"CasesAndDeathsSource filter(continent=='Europe' && not(isNull(country_code))) ~> FilterEuropeOnly",
+				"FilterEuropeOnly sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> processedcasesdeaths"
 			]
 		}
 	}
