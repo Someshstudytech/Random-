@@ -33,53 +33,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/PL_test')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Data flow1",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "df_transform_cases_deaths",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"CasesAndDeathsSource": {},
-									"processedcasesdeaths": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/df_transform_cases_deaths')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/df_row_cases_deaths')]",
+			"name": "[concat(parameters('factoryName'), '/ds_department_sink')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -92,9 +46,35 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "cases_deaths.csv",
-						"folderPath": "ECDC",
-						"fileSystem": "raw"
+						"fileSystem": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidreporting')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_department_source')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_covidreporting",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Department file.csv",
+						"fileSystem": "input"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -103,70 +83,22 @@
 				},
 				"schema": [
 					{
-						"name": "country",
+						"name": "empid",
 						"type": "String"
 					},
 					{
-						"name": "country_code",
+						"name": "name",
 						"type": "String"
 					},
 					{
-						"name": "continent",
+						"name": "Country",
 						"type": "String"
 					},
 					{
-						"name": "population",
-						"type": "String"
-					},
-					{
-						"name": "indicator",
-						"type": "String"
-					},
-					{
-						"name": "daily_count",
-						"type": "String"
-					},
-					{
-						"name": "date",
-						"type": "String"
-					},
-					{
-						"name": "rate_14_day",
-						"type": "String"
-					},
-					{
-						"name": "source",
+						"name": "department",
 						"type": "String"
 					}
 				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidreporting')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_cases_deaths_sink')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adls_covidreporting",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "ecdc/cases_deaths",
-						"fileSystem": "processed"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidreporting')]"
@@ -236,7 +168,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/df_transform_cases_deaths')]",
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -245,57 +177,100 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "df_row_cases_deaths",
+								"referenceName": "ds_department_source",
 								"type": "DatasetReference"
 							},
-							"name": "CasesAndDeathsSource"
+							"name": "dfdepartment"
 						}
 					],
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "ds_cases_deaths_sink",
+								"referenceName": "ds_department_sink",
 								"type": "DatasetReference"
 							},
-							"name": "processedcasesdeaths"
+							"name": "ItEmployeesSink"
+						},
+						{
+							"dataset": {
+								"referenceName": "ds_department_sink",
+								"type": "DatasetReference"
+							},
+							"name": "HREmployeesSink"
+						},
+						{
+							"dataset": {
+								"referenceName": "ds_department_sink",
+								"type": "DatasetReference"
+							},
+							"name": "PayRollEmployeesSink"
 						}
 					],
 					"transformations": [
 						{
-							"name": "FilterEuropeOnly"
+							"name": "Spitbasedondepartment"
 						}
 					],
 					"scriptLines": [
 						"source(output(",
-						"          country as string,",
-						"          country_code as string,",
-						"          continent as string,",
-						"          population as integer,",
-						"          indicator as string,",
-						"          daily_count as short,",
-						"          date as date,",
-						"          rate_14_day as double,",
-						"          source as string",
+						"          empid as string,",
+						"          name as string,",
+						"          Country as string,",
+						"          department as string",
 						"     ),",
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     ignoreNoFilesFound: false) ~> CasesAndDeathsSource",
-						"CasesAndDeathsSource filter(continent=='Europe' && not(isNull(country_code))) ~> FilterEuropeOnly",
-						"FilterEuropeOnly sink(allowSchemaDrift: true,",
+						"     ignoreNoFilesFound: false) ~> dfdepartment",
+						"dfdepartment split(equals(department, '1'),",
+						"     equals(department, '2'),",
+						"     equals(department, '3'),",
+						"     disjoint: false) ~> Spitbasedondepartment@(ITEmployees, HREmployees, PayRollEmployees)",
+						"Spitbasedondepartment@ITEmployees sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     truncate: true,",
+						"     partitionFileNames:['ITEmployees.csv'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> processedcasesdeaths"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> ItEmployeesSink",
+						"Spitbasedondepartment@HREmployees sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     partitionFileNames:['HREmployees.csv'],",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> HREmployeesSink",
+						"Spitbasedondepartment@PayRollEmployees sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     partitionFileNames:['PayRollEmployees.csv'],",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> PayRollEmployeesSink"
 					]
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/df_row_cases_deaths')]",
-				"[concat(variables('factoryId'), '/datasets/ds_cases_deaths_sink')]"
+				"[concat(variables('factoryId'), '/datasets/ds_department_source')]",
+				"[concat(variables('factoryId'), '/datasets/ds_department_sink')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		}
 	]
 }
