@@ -62,11 +62,13 @@
 				"          department as string,",
 				"          NewCountryColumn as string",
 				"     ),",
+				"     partitionFileNames:['EmployeeExist'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
