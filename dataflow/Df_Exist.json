@@ -51,7 +51,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> DepartmentSource",
 				"EmployeesSource, DepartmentSource exists(department == depid,",
-				"     negate:false,",
+				"     negate:true,",
 				"     broadcast: 'auto')~> Exist",
 				"Exist sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
