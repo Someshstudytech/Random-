@@ -5,33 +5,17 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "ds_department_source",
-						"type": "DatasetReference"
-					},
 					"name": "dfdepartment"
 				}
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "ds_department_sink",
-						"type": "DatasetReference"
-					},
 					"name": "ItEmployeesSink"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_department_sink",
-						"type": "DatasetReference"
-					},
 					"name": "HREmployeesSink"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_department_sink",
-						"type": "DatasetReference"
-					},
 					"name": "PayRollEmployeesSink"
 				}
 			],
@@ -48,8 +32,7 @@
 				"          department as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> dfdepartment",
+				"     validateSchema: false) ~> dfdepartment",
 				"dfdepartment split(equals(department, '1'),",
 				"     equals(department, '2'),",
 				"     equals(department, '3'),",
@@ -57,30 +40,27 @@
 				"Spitbasedondepartment@ITEmployees sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['ITEmployees.csv'],",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> ItEmployeesSink",
+				"     partitionBy('hash', 1),",
+				"     preCommands: [],",
+				"     postCommands: []) ~> ItEmployeesSink",
 				"Spitbasedondepartment@HREmployees sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['HREmployees.csv'],",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> HREmployeesSink",
+				"     partitionBy('hash', 1),",
+				"     preCommands: [],",
+				"     postCommands: []) ~> HREmployeesSink",
 				"Spitbasedondepartment@PayRollEmployees sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['PayRollEmployees.csv'],",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> PayRollEmployeesSink"
+				"     partitionBy('hash', 1),",
+				"     preCommands: [],",
+				"     postCommands: []) ~> PayRollEmployeesSink"
 			]
 		}
 	}

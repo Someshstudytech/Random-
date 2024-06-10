@@ -1,0 +1,73 @@
+{
+	"name": "Df_Exist",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_employee",
+						"type": "DatasetReference"
+					},
+					"name": "EmployeesSource"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_department",
+						"type": "DatasetReference"
+					},
+					"name": "DepartmentSource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Exist"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          empid as string,",
+				"          name as string,",
+				"          Country as string,",
+				"          department as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> EmployeesSource",
+				"source(output(",
+				"          depid as string,",
+				"          depname as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> DepartmentSource",
+				"EmployeesSource, DepartmentSource exists(department == depid,",
+				"     negate:false,",
+				"     broadcast: 'auto')~> Exist",
+				"Exist sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          empid as string,",
+				"          name as string,",
+				"          Country as string,",
+				"          department as string,",
+				"          NewCountryColumn as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

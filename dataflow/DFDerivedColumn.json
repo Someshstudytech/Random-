@@ -5,19 +5,11 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "ds_employees_source",
-						"type": "DatasetReference"
-					},
 					"name": "employees"
 				}
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "ds_employee_sink",
-						"type": "DatasetReference"
-					},
 					"name": "EmployeeSink"
 				}
 			],
@@ -34,25 +26,17 @@
 				"          department as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> employees",
+				"     validateSchema: false) ~> employees",
 				"employees derive(Country = upper(Country),",
 				"          NewCountryColumn = iif(isNull(Country),'Unknown',upper(Country))) ~> derivedColumn1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          empid as string,",
-				"          name as string,",
-				"          Country as string,",
-				"          department as string",
-				"     ),",
 				"     partitionFileNames:['EmployeeNew.csv'],",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> EmployeeSink"
+				"     partitionBy('hash', 1),",
+				"     preCommands: [],",
+				"     postCommands: []) ~> EmployeeSink"
 			]
 		}
 	}
