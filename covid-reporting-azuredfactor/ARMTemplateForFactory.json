@@ -33,7 +33,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Pl_Department')]",
+			"name": "[concat(parameters('factoryName'), '/Pl_Exist')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -52,14 +52,13 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataflow": {
-								"referenceName": "DF_Split_conditional",
+								"referenceName": "Df_Exist",
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
-									"dfdepartment": {},
-									"ItEmployeesSink": {},
-									"HREmployeesSink": {},
-									"PayRollEmployeesSink": {}
+									"EmployeesSource": {},
+									"DepartmentSource": {},
+									"sink1": {}
 								}
 							},
 							"staging": {},
@@ -77,11 +76,11 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/DF_Split_conditional')]"
+				"[concat(variables('factoryId'), '/dataflows/Df_Exist')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_department_sink')]",
+			"name": "[concat(parameters('factoryName'), '/ds_department')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -94,34 +93,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileSystem": "output"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidreporting')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_department_source')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adls_covidreporting",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Department file.csv",
+						"fileName": "DepartmentData.csv",
 						"fileSystem": "input"
 					},
 					"columnDelimiter": ",",
@@ -131,19 +103,11 @@
 				},
 				"schema": [
 					{
-						"name": "empid",
+						"name": "depid",
 						"type": "String"
 					},
 					{
-						"name": "name",
-						"type": "String"
-					},
-					{
-						"name": "Country",
-						"type": "String"
-					},
-					{
-						"name": "department",
+						"name": "depname",
 						"type": "String"
 					}
 				]
@@ -153,51 +117,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_employee_sink')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adls_covidreporting",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "output"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "empid",
-						"type": "String"
-					},
-					{
-						"name": "name",
-						"type": "String"
-					},
-					{
-						"name": "Country",
-						"type": "String"
-					},
-					{
-						"name": "department",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidreporting')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_employees_source')]",
+			"name": "[concat(parameters('factoryName'), '/ds_employee')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -233,6 +153,54 @@
 					},
 					{
 						"name": "department",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_covidreporting')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_sink')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_covidreporting",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "empid",
+						"type": "String"
+					},
+					{
+						"name": "name",
+						"type": "String"
+					},
+					{
+						"name": "Country",
+						"type": "String"
+					},
+					{
+						"name": "department",
+						"type": "String"
+					},
+					{
+						"name": "NewCountryColumn",
 						"type": "String"
 					}
 				]
@@ -305,7 +273,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DFDerivedColumn')]",
+			"name": "[concat(parameters('factoryName'), '/Df_Exist')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -314,24 +282,31 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "ds_employees_source",
+								"referenceName": "ds_employee",
 								"type": "DatasetReference"
 							},
-							"name": "employees"
+							"name": "EmployeesSource"
+						},
+						{
+							"dataset": {
+								"referenceName": "ds_department",
+								"type": "DatasetReference"
+							},
+							"name": "DepartmentSource"
 						}
 					],
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "ds_employee_sink",
+								"referenceName": "ds_sink",
 								"type": "DatasetReference"
 							},
-							"name": "EmployeeSink"
+							"name": "sink1"
 						}
 					],
 					"transformations": [
 						{
-							"name": "derivedColumn1"
+							"name": "Exist"
 						}
 					],
 					"scriptLines": [
@@ -343,136 +318,41 @@
 						"     ),",
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     ignoreNoFilesFound: false) ~> employees",
-						"employees derive(Country = upper(Country),",
-						"          NewCountryColumn = iif(isNull(Country),'Unknown',upper(Country))) ~> derivedColumn1",
-						"derivedColumn1 sink(allowSchemaDrift: true,",
+						"     ignoreNoFilesFound: false) ~> EmployeesSource",
+						"source(output(",
+						"          depid as string,",
+						"          depname as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> DepartmentSource",
+						"EmployeesSource, DepartmentSource exists(department == depid,",
+						"     negate:false,",
+						"     broadcast: 'auto')~> Exist",
+						"Exist sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     input(",
 						"          empid as string,",
 						"          name as string,",
 						"          Country as string,",
-						"          department as string",
+						"          department as string,",
+						"          NewCountryColumn as string",
 						"     ),",
-						"     partitionFileNames:['EmployeeNew.csv'],",
+						"     partitionFileNames:['EmployeeExist'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
-						"     partitionBy('hash', 1)) ~> EmployeeSink"
+						"     partitionBy('hash', 1)) ~> sink1"
 					]
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_employees_source')]",
-				"[concat(variables('factoryId'), '/datasets/ds_employee_sink')]"
+				"[concat(variables('factoryId'), '/datasets/ds_employee')]",
+				"[concat(variables('factoryId'), '/datasets/ds_department')]",
+				"[concat(variables('factoryId'), '/datasets/ds_sink')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DF_Split_conditional')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "ds_department_source",
-								"type": "DatasetReference"
-							},
-							"name": "dfdepartment"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "ds_department_sink",
-								"type": "DatasetReference"
-							},
-							"name": "ItEmployeesSink"
-						},
-						{
-							"dataset": {
-								"referenceName": "ds_department_sink",
-								"type": "DatasetReference"
-							},
-							"name": "HREmployeesSink"
-						},
-						{
-							"dataset": {
-								"referenceName": "ds_department_sink",
-								"type": "DatasetReference"
-							},
-							"name": "PayRollEmployeesSink"
-						}
-					],
-					"transformations": [
-						{
-							"name": "Spitbasedondepartment"
-						}
-					],
-					"scriptLines": [
-						"source(output(",
-						"          empid as string,",
-						"          name as string,",
-						"          Country as string,",
-						"          department as string",
-						"     ),",
-						"     allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     ignoreNoFilesFound: false) ~> dfdepartment",
-						"dfdepartment split(equals(department, '1'),",
-						"     equals(department, '2'),",
-						"     equals(department, '3'),",
-						"     disjoint: false) ~> Spitbasedondepartment@(ITEmployees, HREmployees, PayRollEmployees)",
-						"Spitbasedondepartment@ITEmployees sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     partitionFileNames:['ITEmployees.csv'],",
-						"     umask: 0022,",
-						"     preCommands: [],",
-						"     postCommands: [],",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     partitionBy('hash', 1)) ~> ItEmployeesSink",
-						"Spitbasedondepartment@HREmployees sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     partitionFileNames:['HREmployees.csv'],",
-						"     umask: 0022,",
-						"     preCommands: [],",
-						"     postCommands: [],",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     partitionBy('hash', 1)) ~> HREmployeesSink",
-						"Spitbasedondepartment@PayRollEmployees sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     partitionFileNames:['PayRollEmployees.csv'],",
-						"     umask: 0022,",
-						"     preCommands: [],",
-						"     postCommands: [],",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     partitionBy('hash', 1)) ~> PayRollEmployeesSink"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_department_source')]",
-				"[concat(variables('factoryId'), '/datasets/ds_department_sink')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Pl_derivedColumn')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": []
 		}
 	]
 }
