@@ -1,0 +1,6 @@
+{
+	"name": "integrationRuntimeSQLtoAzure",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
