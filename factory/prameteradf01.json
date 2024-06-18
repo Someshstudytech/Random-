@@ -1,0 +1,9 @@
+{
+	"name": "prameteradf01",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d6e27f73-1e49-444b-9c3c-6e40043ba82b",
+		"tenantId": "3929eceb-1315-46df-9f3d-1797cb34df3d"
+	}
+}
