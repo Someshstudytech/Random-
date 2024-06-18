@@ -2,19 +2,21 @@
 	"name": "SqlServer1",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"db_name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
 			"server": "ASUS\\SQLEXPRESS01",
-			"database": "AdventureWorksLT2017",
+			"database": "@{linkedService().db_name}",
 			"encrypt": "mandatory",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
 			"userName": "somesh",
-			"password": {
-				"type": "SecureString",
-				"value": "**********"
-			}
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxYmY4MDVjZS0xZjVkLTQ2NTQtYjRkZC1jMzkzNWYyOWZmYTkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
