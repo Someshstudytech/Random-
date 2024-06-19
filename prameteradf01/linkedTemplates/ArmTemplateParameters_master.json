@@ -5,16 +5,22 @@
 		"factoryName": {
 			"value": "prameteradf01"
 		},
-		"SqlServer1_password": {
+		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
-		"SqlServer1_properties_typeProperties_server": {
+		"ls_param_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://parametepractadls.dfs.core.windows.net/"
+		},
+		"ls_param_properties_typeProperties_server": {
 			"value": "ASUS\\SQLEXPRESS01"
 		},
-		"SqlServer1_properties_typeProperties_database": {
-			"value": "@{linkedService().db_name}"
+		"ls_param_properties_typeProperties_database": {
+			"value": "@{linkedService().DB_name}"
 		},
-		"SqlServer1_properties_typeProperties_userName": {
+		"ls_param_properties_typeProperties_userName": {
 			"value": "somesh"
 		},
 		"containerUri": {
