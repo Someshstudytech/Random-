@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "source"
+				"fileName": "opfile.csv",
+				"fileSystem": "dailyfilesource"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
