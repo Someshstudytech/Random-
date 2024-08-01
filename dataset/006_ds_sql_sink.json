@@ -1,0 +1,16 @@
+{
+	"name": "006_ds_sql_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqlb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "newtb"
+		}
+	}
+}

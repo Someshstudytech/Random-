@@ -1,24 +1,16 @@
 {
-	"name": "source",
+	"name": "ds_lookup",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"filename": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().filename",
-					"type": "Expression"
-				},
+				"fileName": "new_cases_per_million.csv",
 				"fileSystem": "source"
 			},
 			"columnDelimiter": ",",

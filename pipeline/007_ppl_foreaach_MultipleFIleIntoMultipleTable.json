@@ -1,5 +1,5 @@
 {
-	"name": "005_ppl_foreachActivity_copyMultipleFile",
+	"name": "007_ppl_foreaach_MultipleFIleIntoMultipleTable",
 	"properties": {
 		"activities": [
 			{
@@ -12,6 +12,7 @@
 						"value": "@pipeline().parameters.filename",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Copy data1",
@@ -38,15 +39,11 @@
 									}
 								},
 								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
+									"type": "AzureSqlSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
 								"translator": {
@@ -61,12 +58,18 @@
 							"inputs": [
 								{
 									"referenceName": "source",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "sink",
+									"referenceName": "AzureSqlTable1",
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
@@ -85,14 +88,9 @@
 			"filename": {
 				"type": "array",
 				"defaultValue": [
-					"Book1.csv",
-					"Book12354.csv"
+					"biweekly_cases.csv",
+					"new_cases_per_million.csv"
 				]
-			}
-		},
-		"variables": {
-			"counntry": {
-				"type": "String"
 			}
 		},
 		"annotations": []

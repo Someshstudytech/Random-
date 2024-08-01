@@ -1,5 +1,5 @@
 {
-	"name": "source",
+	"name": "006_ds_copy_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls",

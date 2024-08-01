@@ -1,5 +1,5 @@
 {
-	"name": "005_ppl_foreachActivity_copyMultipleFile",
+	"name": "foreach",
 	"properties": {
 		"activities": [
 			{
@@ -38,15 +38,11 @@
 									}
 								},
 								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
+									"type": "AzureSqlSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
 								"translator": {
@@ -60,16 +56,16 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "source",
+									"referenceName": "ds_source",
 									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "sink",
+									"referenceName": "AzureSqlTable2",
 									"type": "DatasetReference",
 									"parameters": {
-										"filename": {
+										"tablename": {
 											"value": "@replace(item(),'.csv','')",
 											"type": "Expression"
 										}
@@ -85,14 +81,9 @@
 			"filename": {
 				"type": "array",
 				"defaultValue": [
-					"Book1.csv",
-					"Book12354.csv"
+					"biweekly_cases.csv",
+					"new_cases_per_million.csv"
 				]
-			}
-		},
-		"variables": {
-			"counntry": {
-				"type": "String"
 			}
 		},
 		"annotations": []
