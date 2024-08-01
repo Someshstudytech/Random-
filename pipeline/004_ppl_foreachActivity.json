@@ -1,0 +1,51 @@
+{
+	"name": "004_ppl_foreachActivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.country",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "sa",
+								"value": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"country": {
+				"type": "array",
+				"defaultValue": [
+					"in",
+					"mn",
+					"cd"
+				]
+			}
+		},
+		"variables": {
+			"sa": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
