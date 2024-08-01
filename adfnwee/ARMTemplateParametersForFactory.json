@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfnwee"
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"ls_adls_accountKey": {
+			"value": ""
+		},
+		"ls_sqlb_password": {
+			"value": ""
+		},
+		"ls_sqldb_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sqlservcd.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "sqldbqy"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "somesh"
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"value": "https://newstgac.dfs.core.windows.net/"
+		},
+		"ls_sqlb_properties_typeProperties_server": {
+			"value": "sqlservcd.database.windows.net"
+		},
+		"ls_sqlb_properties_typeProperties_database": {
+			"value": "sqldbqy"
+		},
+		"ls_sqlb_properties_typeProperties_userName": {
+			"value": "somesh"
+		},
+		"ls_sqldb_properties_typeProperties_server": {
+			"value": "sqlshe.database.windows.net"
+		},
+		"ls_sqldb_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"ls_sqldb_properties_typeProperties_userName": {
+			"value": "somesh"
+		}
+	}
+}
