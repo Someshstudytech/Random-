@@ -1,0 +1,81 @@
+{
+	"name": "001_setVariableActivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable string",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "String",
+					"value": "cricket"
+				}
+			},
+			{
+				"name": "Set variable number",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "String",
+					"value": "1222"
+				}
+			},
+			{
+				"name": "checking function output",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "fun_utcnow",
+					"value": {
+						"value": "@utcnow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "checking function output2",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "function",
+					"value": {
+						"value": "@subtractFromTime(utcnow(),5,'day')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"String": {
+				"type": "String"
+			},
+			"fun_utcnow": {
+				"type": "String"
+			},
+			"function": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
