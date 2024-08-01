@@ -12,6 +12,7 @@
 						"value": "@pipeline().parameters.country",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Set variable1",
@@ -23,8 +24,11 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "sa",
-								"value": ""
+								"variableName": "counntry",
+								"value": {
+									"value": "@item()",
+									"type": "Expression"
+								}
 							}
 						}
 					]
@@ -42,7 +46,7 @@
 			}
 		},
 		"variables": {
-			"sa": {
+			"counntry": {
 				"type": "String"
 			}
 		},

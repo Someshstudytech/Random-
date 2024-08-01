@@ -19,6 +19,7 @@
 					"value": "@dataset().filename",
 					"type": "Expression"
 				},
+				"folderPath": "sub",
 				"fileSystem": "source"
 			},
 			"columnDelimiter": ",",
