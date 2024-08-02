@@ -8,6 +8,12 @@
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"LS_ADLS_to_adf_accountKey": {
+			"value": ""
+		},
 		"ls_adls_accountKey": {
 			"value": ""
 		},
@@ -25,6 +31,18 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "somesh"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "sqlservcd.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "sqldbqy"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "somesh"
+		},
+		"LS_ADLS_to_adf_properties_typeProperties_url": {
+			"value": "https://newstgac.dfs.core.windows.net/"
 		},
 		"ls_adls_properties_typeProperties_url": {
 			"value": "https://newstgac.dfs.core.windows.net/"
