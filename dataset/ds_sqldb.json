@@ -995,7 +995,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "newcopytb"
+			"table": ""
 		}
 	}
 }
