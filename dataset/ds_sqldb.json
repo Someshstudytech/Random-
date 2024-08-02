@@ -1,0 +1,1001 @@
+{
+	"name": "ds_sqldb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqlb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "World",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Afghanistan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Africa",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Albania",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Algeria",
+				"type": "nvarchar"
+			},
+			{
+				"name": "American Samoa",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Andorra",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Angola",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Anguilla",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Antigua and Barbuda",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Argentina",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Armenia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Aruba",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Asia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Australia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Austria",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Azerbaijan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bahamas",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bahrain",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bangladesh",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Barbados",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Belarus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Belgium",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Belize",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Benin",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bermuda",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bhutan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bolivia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bonaire Sint Eustatius and Saba",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bosnia and Herzegovina",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Botswana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Brazil",
+				"type": "nvarchar"
+			},
+			{
+				"name": "British Virgin Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Brunei",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Bulgaria",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Burkina Faso",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Burundi",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cambodia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cameroon",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Canada",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cape Verde",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cayman Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Central African Republic",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Chad",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Chile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "China",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Colombia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Comoros",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Congo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cook Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Costa Rica",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cote d'Ivoire",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Croatia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cuba",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Curacao",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cyprus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Czechia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Democratic Republic of Congo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Denmark",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Djibouti",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Dominica",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Dominican Republic",
+				"type": "nvarchar"
+			},
+			{
+				"name": "East Timor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ecuador",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Egypt",
+				"type": "nvarchar"
+			},
+			{
+				"name": "El Salvador",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Equatorial Guinea",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Eritrea",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Estonia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Eswatini",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ethiopia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Europe",
+				"type": "nvarchar"
+			},
+			{
+				"name": "European Union (27)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Falkland Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Faroe Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Fiji",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Finland",
+				"type": "nvarchar"
+			},
+			{
+				"name": "France",
+				"type": "nvarchar"
+			},
+			{
+				"name": "French Guiana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "French Polynesia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gabon",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gambia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Georgia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Germany",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ghana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gibraltar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Greece",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Greenland",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Grenada",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guadeloupe",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guam",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guatemala",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guernsey",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guinea",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guinea-Bissau",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Guyana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Haiti",
+				"type": "nvarchar"
+			},
+			{
+				"name": "High-income countries",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Honduras",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Hungary",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Iceland",
+				"type": "nvarchar"
+			},
+			{
+				"name": "India",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Indonesia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Iran",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Iraq",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ireland",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Isle of Man",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Israel",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Italy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Jamaica",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Japan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Jersey",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Jordan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Kazakhstan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Kenya",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Kiribati",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Kosovo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Kuwait",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Kyrgyzstan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Laos",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Latvia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lebanon",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lesotho",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Liberia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Libya",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Liechtenstein",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lithuania",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Low-income countries",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lower-middle-income countries",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Luxembourg",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Madagascar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Malawi",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Malaysia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Maldives",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mali",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Malta",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Marshall Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Martinique",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mauritania",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mauritius",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mayotte",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mexico",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Micronesia (country)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Moldova",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Monaco",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mongolia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Montenegro",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Montserrat",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Morocco",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mozambique",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Myanmar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Namibia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Nauru",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Nepal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Netherlands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "New Caledonia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "New Zealand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Nicaragua",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Niger",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Nigeria",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Niue",
+				"type": "nvarchar"
+			},
+			{
+				"name": "North America",
+				"type": "nvarchar"
+			},
+			{
+				"name": "North Korea",
+				"type": "nvarchar"
+			},
+			{
+				"name": "North Macedonia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Northern Mariana Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Norway",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Oceania",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Oman",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pakistan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Palau",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Palestine",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Panama",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Papua New Guinea",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Paraguay",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Peru",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Philippines",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Poland",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Portugal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Puerto Rico",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Qatar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Reunion",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Romania",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Russia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Rwanda",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Barthelemy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Helena",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Kitts and Nevis",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Lucia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Martin (French part)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Pierre and Miquelon",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saint Vincent and the Grenadines",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Samoa",
+				"type": "nvarchar"
+			},
+			{
+				"name": "San Marino",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sao Tome and Principe",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Saudi Arabia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Senegal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Serbia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Seychelles",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sierra Leone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Singapore",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sint Maarten (Dutch part)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Slovakia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Slovenia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Solomon Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Somalia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "South Africa",
+				"type": "nvarchar"
+			},
+			{
+				"name": "South America",
+				"type": "nvarchar"
+			},
+			{
+				"name": "South Korea",
+				"type": "nvarchar"
+			},
+			{
+				"name": "South Sudan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Spain",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sri Lanka",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sudan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Suriname",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sweden",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Switzerland",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Syria",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tajikistan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tanzania",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Thailand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Togo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tokelau",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tonga",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Trinidad and Tobago",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tunisia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Turkey",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Turkmenistan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Turks and Caicos Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tuvalu",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Uganda",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Ukraine",
+				"type": "nvarchar"
+			},
+			{
+				"name": "United Arab Emirates",
+				"type": "nvarchar"
+			},
+			{
+				"name": "United Kingdom",
+				"type": "nvarchar"
+			},
+			{
+				"name": "United States",
+				"type": "nvarchar"
+			},
+			{
+				"name": "United States Virgin Islands",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Upper-middle-income countries",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Uruguay",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Uzbekistan",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vanuatu",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vatican",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Venezuela",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Vietnam",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Wallis and Futuna",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Yemen",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Zambia",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Zimbabwe",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "newcopytb"
+		}
+	}
+}
