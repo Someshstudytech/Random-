@@ -1,0 +1,104 @@
+{
+	"name": "SourceDataset_yl2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_to_adf",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "patients.csv",
+				"fileSystem": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Id",
+				"type": "String"
+			},
+			{
+				"name": "BIRTHDATE",
+				"type": "String"
+			},
+			{
+				"name": "DEATHDATE",
+				"type": "String"
+			},
+			{
+				"name": "PREFIX",
+				"type": "String"
+			},
+			{
+				"name": "FIRST",
+				"type": "String"
+			},
+			{
+				"name": "LAST",
+				"type": "String"
+			},
+			{
+				"name": "SUFFIX",
+				"type": "String"
+			},
+			{
+				"name": "MAIDEN",
+				"type": "String"
+			},
+			{
+				"name": "MARITAL",
+				"type": "String"
+			},
+			{
+				"name": "RACE",
+				"type": "String"
+			},
+			{
+				"name": "ETHNICITY",
+				"type": "String"
+			},
+			{
+				"name": "GENDER",
+				"type": "String"
+			},
+			{
+				"name": "BIRTHPLACE",
+				"type": "String"
+			},
+			{
+				"name": "ADDRESS",
+				"type": "String"
+			},
+			{
+				"name": "CITY",
+				"type": "String"
+			},
+			{
+				"name": "STATE",
+				"type": "String"
+			},
+			{
+				"name": "COUNTY",
+				"type": "String"
+			},
+			{
+				"name": "ZIP",
+				"type": "String"
+			},
+			{
+				"name": "LAT",
+				"type": "String"
+			},
+			{
+				"name": "LON",
+				"type": "String"
+			}
+		]
+	}
+}
